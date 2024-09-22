@@ -10,7 +10,8 @@ class ChromaDB(VectorStore):
     def __init__(self, config: dict, embedding_fn: chromadb.EmbeddingFunction = None):
         self.client = chromadb.PersistentClient(config["db_path"])
         self.collection = self.client.get_or_create_collection(
-            config["collection_name"], embedding_function=embedding_fn
+            config["collection_name"], embedding_function=embedding_fn,
+            metadata={"hnsw:space": "cosine"}
         )
 
     def store_vectors(
