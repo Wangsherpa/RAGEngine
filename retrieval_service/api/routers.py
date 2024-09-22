@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from src.controller import RetrievalEngine
+from src.retrieval import RetrievalEngine
 from src.chunking.character_chunking import CharacterChunking
 from src.vector_stores.chroma_db import ChromaDB
 from api.models import DocumentRequest, QueryRequest, QueryResponse

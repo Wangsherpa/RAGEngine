@@ -8,7 +8,7 @@ from src.document_loader.document_loader import DocumentLoader
 from src.chunking.character_chunking import CharacterChunking
 from src.vector_stores.chroma_db import ChromaDB
 from src.embeddings.transformer_embedding import TransformerEmbeddingGenerator
-from src.controller import RetrievalEngine
+from src.retrieval import RetrievalEngine
 from config.vectordb_config import vectordb_config
 
 
@@ -59,10 +59,11 @@ def main():
     if args.process_doc:
         retrieval_engine.process_document(doc, document_name="test_name")
     results = retrieval_engine.retrieve_chunks(query_text=args.query)
-    for i, doc in enumerate(results["documents"]):
-        print(f"### {i+1}")
-        print(doc)
-        print()
+    print(results)
+    # for i, doc in enumerate(results["documents"]):
+    #     print(f"### {i+1}")
+    #     print(doc)
+    #     print()
 
 
 if __name__ == "__main__":
